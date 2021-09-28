@@ -4,7 +4,6 @@ namespace Marjose\UrlShortener;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Marjose\UrlShortener\Commands\UrlShortenerCommand;
 
 class UrlShortenerServiceProvider extends PackageServiceProvider
 {
