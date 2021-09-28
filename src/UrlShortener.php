@@ -32,6 +32,7 @@ class UrlShortener
 
         return true;
     }
+
     private function getData()
     {
         if ($this->link === null) {
@@ -44,27 +45,31 @@ class UrlShortener
     public function isExpired(): bool
     {
         $data = $this->getData();
-        if (!isset($data)) {
+        if (! isset($data)) {
             return throw new \Exception('Entity not found');
         }
+
         return Carbon::parse($data->created_at)->addMinutes($data->expiration)->isPast();
     }
 
     public function setExpiration($minutes): UrlShortener
     {
         $this->expiration = $minutes;
+
         return $this;
     }
 
     public function setLength($x): UrlShortener
     {
         $this->length = $x;
+
         return $this;
     }
 
     public function url($url): UrlShortener
     {
         $this->link = $url;
+
         return $this;
     }
 
@@ -86,5 +91,4 @@ class UrlShortener
         'shorten_link' => $new_link,
         ]);
     }
-
 }
