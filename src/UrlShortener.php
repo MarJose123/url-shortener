@@ -47,7 +47,7 @@ class UrlShortener
         if (!isset($data)) {
             return throw new \Exception('Entity not found');
         }
-        return Carbon::parse($data->created_at)->addMinutes($this->expiration)->isPast();
+        return Carbon::parse($data->created_at)->addMinutes($data->expiration)->isPast();
     }
 
     public function setExpiration($minutes): UrlShortener
@@ -81,6 +81,7 @@ class UrlShortener
 
         return UrlShorten::create([
         'param' => $string,
+        'expiration' => $this->expiration,
         'original_link' => $this->link,
         'shorten_link' => $new_link,
         ]);

@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('urlShortener', function (Blueprint $table) {
             $table->id();
             $table->string('param');
+            $table->integer('expiration');
             $table->text('original_link');
             $table->text('shorten_link');
             $table->timestamps();
