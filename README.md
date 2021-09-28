@@ -32,15 +32,30 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'length' => 6, // Length of the string for shortening the URL
+    'expiration' => 120, // minutes, 0 for no expiration
 ];
 ```
 
 ## Usage
 
+Generating the URL by using the default setting from the Config file.
 ```php
-$url-shortener = new Marjose\UrlShortener();
-echo $url-shortener->echoPhrase('Hello, Marjose!');
+use Marjose\UrlShortener\Facades\UrlShortener;
+$response = UrlShortener::url('https://xxxx.xx/xxxx')->generate();
 ```
+
+Generating the URL by adding expiration to the link.
+```php
+use Marjose\UrlShortener\Facades\UrlShortener;
+$response = UrlShortener::url('https://xxxx.xx/xxxx')->setExpiration(15)->generate();
+```
+Generating the URL by overriding the default setting from the Config file.
+```php
+use Marjose\UrlShortener\Facades\UrlShortener;
+$response = UrlShortener::url('https://xxxx.xx/xxxx')->setLength(5)->setExpiration(15)->generate();
+```
+
 
 ## Testing
 
@@ -56,14 +71,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [MarJose](https://github.com/marjose)
-- [All Contributors](../../contributors)
+- [MarJose](https://github.com/whoami213)
 
 ## License
 
