@@ -12,13 +12,13 @@ class UrlShortener
 
     private $link;
     private $new_link;
-    private $settings;
+    private $expiration;
     private $length;
 
-    public function __construct($link)
-    {
-        $this->link = $link;
-    }
+//    public function __construct()
+//    {
+//
+//    }
 
     /**
      * @throws \Exception
@@ -37,6 +37,11 @@ class UrlShortener
     public function setLength($x): UrlShortener
     {
         $this->length = $x;
+        return $this;
+    }
+    public function url($url)
+    {
+        $this->link = $url;
         return $this;
     }
 

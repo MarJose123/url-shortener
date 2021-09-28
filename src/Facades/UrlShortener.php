@@ -1,16 +1,16 @@
 <?php
 
-namespace Marjose\UrlShortener;
+namespace Marjose\UrlShortener\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Marjose\UrlShortener\UrlShortener
  */
-class UrlShortenerFacade extends Facade
+class UrlShortener extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'UrlShortener';
+        return 'urlshortener';
     }
 }

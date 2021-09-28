@@ -4,7 +4,6 @@ namespace Marjose\UrlShortener;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Marjose\UrlShortener\Commands\UrlShortenerCommand;
 
 class UrlShortenerServiceProvider extends PackageServiceProvider
 {
@@ -19,5 +18,12 @@ class UrlShortenerServiceProvider extends PackageServiceProvider
             ->name('UrlShortener')
             ->hasConfigFile()
             ->hasMigration('create_url-shortener_table');
+    }
+
+    public function registeringPackage()
+    {
+        $this->app->bind('urlshortener', function ($app) {
+            return new UrlShortener();
+        });
     }
 }

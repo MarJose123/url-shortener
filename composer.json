@@ -52,7 +52,7 @@
                 "Marjose\\UrlShortener\\UrlShortenerServiceProvider"
             ],
             "aliases": {
-                "UrlShortener": "Marjose\\UrlShortener\\UrlShortenerFacade"
+                "UrlShortener": "Marjose\\UrlShortener\\Facade\\UrlShortener"
             }
         }
     },
