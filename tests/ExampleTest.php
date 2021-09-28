@@ -34,3 +34,7 @@ it('can generate new shorten url link with expiration', function () {
         ->toHaveCount(1)
         ->and($generatedLink->first()->id)->toBe($response->id);
 });
+
+it('can throw error once the url is empty', function () {
+    UrlShortener::url('')->setLength(5)->setExpiration(15)->generate();
+})->throws('URL is missing or not valid');
