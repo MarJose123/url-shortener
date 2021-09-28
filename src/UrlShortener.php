@@ -2,14 +2,11 @@
 
 namespace Marjose\UrlShortener;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Marjose\UrlShortener\Models\UrlShorten;
 
 class UrlShortener
 {
-
-
     private $link;
     private $new_link;
     private $expiration;
@@ -34,9 +31,11 @@ class UrlShortener
 
         return true;
     }
+
     public function setLength($x): UrlShortener
     {
         $this->length = $x;
+
         return $this;
     }
     public function url($url)
@@ -50,12 +49,12 @@ class UrlShortener
      */
     public function generate()
     {
-
         if ($this->validate($this->link) !== true) {
             return throw new \Exception('URL is missing or not valid');
         }
         $string = Str::random($this->length);
         $this->new_link = env('APP_URL')."/s/".$string;
+
         return UrlShorten::create([
         'param' => $string,
         'original_link' => $this->link,
