@@ -41,7 +41,7 @@ class UrlShortener
         return UrlShorten::where('shorten_link', $this->link)->first();
     }
 
-    public function isExpired()
+    public function isExpired(): bool
     {
         $data = $this->getData();
         if (!isset($data)) {
