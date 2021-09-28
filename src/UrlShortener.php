@@ -38,9 +38,11 @@ class UrlShortener
 
         return $this;
     }
+
     public function url($url)
     {
         $this->link = $url;
+
         return $this;
     }
 

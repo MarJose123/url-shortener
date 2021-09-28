@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Marjose\UrlShortener\Models\UrlShorten;
 use Marjose\UrlShortener\Facades\UrlShortener;
+use Marjose\UrlShortener\Models\UrlShorten;
 
 uses(RefreshDatabase::class);
 it('can test', function () {
@@ -19,7 +19,6 @@ it('can insert the new url link')->assertDatabaseHas('urlShortener', [
 ]);*/
 
 it('can generate a new shorten url link', function () {
-
     $response = UrlShortener::url('https://pestphp.com/docs/plugins/laravel')->setLength(5)->generate();
     $generatedLink = UrlShorten::all();
     expect($generatedLink)
