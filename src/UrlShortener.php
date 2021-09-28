@@ -38,10 +38,7 @@ class UrlShortener
             return throw new \Exception('URL is missing or not valid');
         }
 
-        return UrlShorten::where([
-            ['shorten_link', $this->link],
-            ['original_link', $this->link]
-        ])->first();
+        return UrlShorten::where('shorten_link', $this->link)->orWhere('original_link', $this->link)->first();
     }
 
     public function isExpired(): bool
