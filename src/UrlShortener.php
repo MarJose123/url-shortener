@@ -32,7 +32,7 @@ class UrlShortener
 
         return true;
     }
-    private function getData()
+    public function getData()
     {
         if ($this->link === null) {
             return throw new \Exception('URL is missing or not valid');
