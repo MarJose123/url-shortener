@@ -14,9 +14,8 @@ class UrlShorten extends Model
     protected $guarded = [];
     protected $table = 'urlShortener';
 
-    function getisExpiredAttribute()
+    public function getisExpiredAttribute()
     {
-
         return sprintf('%s', Carbon::parse($this->created_at)->addMinutes($this->expiration)->isPast());
     }
 }
