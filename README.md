@@ -55,7 +55,13 @@ Generating the URL by overriding the default setting from the Config file.
 use Marjose\UrlShortener\Facades\UrlShortener;
 $response = UrlShortener::url('https://xxxx.xx/xxxx')->setLength(5)->setExpiration(15)->generate();
 ```
+Validate if the shorted URL is expired or not
+```php
+use Marjose\UrlShortener\Facades\UrlShortener;
+$response = UrlShortener::url('https://xxxx.xx/xxxx')->isExpired();
 
+// This will return boolean or an exception if the supplied url is not found in the database
+```
 
 ## Testing
 
