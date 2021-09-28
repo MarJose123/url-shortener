@@ -26,3 +26,12 @@ it('can generate a new shorten url link', function () {
         ->toHaveCount(1)
         ->and($generatedLink->first()->id)->toBe($response->id);
 });
+
+
+it('can generate new shorten url link with expiration', function () {
+    $response = UrlShortener::url('https://pestphp.com/docs/plugins/laravel')->setLength(5)->setExpiration(15)->generate();
+    $generatedLink = UrlShorten::all();
+    expect($generatedLink)
+        ->toHaveCount(1)
+        ->and($generatedLink->first()->id)->toBe($response->id);
+});
