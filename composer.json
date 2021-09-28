@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "marjose/url-shortener",
+    "description": "This will generate a shorten URL based on the supplied URL",
     "keywords": [
-        ":vendor_name",
+        "marjose",
         "laravel",
-        ":package_slug"
+        "url-shortener"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/marjose/url-shortener",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "MarJose",
+            "email": "hypernate1@gmail.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Marjose\\UrlShortener\\": "src",
+            "Marjose\\UrlShortener\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Marjose\\UrlShortener\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Marjose\\UrlShortener\\UrlShortenerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "UrlShortener": "Marjose\\UrlShortener\\UrlShortenerFacade"
             }
         }
     },
