@@ -63,6 +63,12 @@ $response = UrlShortener::url('https://xxxx.xx/xxxx')->isExpired();
 // This will return boolean or an exception if the supplied url is not found in the database
 ```
 
+In your web.php route you can add a new route similar to this, so that you can capture and redirect to the original link once the like is validated by your controller.
+```php
+Route::get('s/{url_key}',[YourControllerHere::class, 'YourControllerMethod']);
+```
+
+
 ## Testing
 
 ```bash
